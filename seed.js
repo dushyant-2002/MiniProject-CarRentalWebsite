@@ -21,14 +21,14 @@ const cars = [
       name: "Car 2",
       speed: 130,
       img: "https://c4.wallpaperflare.com/wallpaper/66/25/239/machine-grey-background-volvo-wallpaper-preview.jpg",
-      type: "SUV",
+      type: "Luxury",
       transmission: "Automatic",
       fuel: "Diesel",
       seatingCapacity: 7,
       model: 2021,
       price: 60,
       rating: 4.2,
-      location: "City B",
+      location: "City A",
       features: ["Backup Camera", "Leather Seats", "Sunroof"],
       availability: 8
     },
@@ -36,10 +36,10 @@ const cars = [
       name: "Car 3",
       speed: 110,
       img: "https://c4.wallpaperflare.com/wallpaper/66/25/239/machine-grey-background-volvo-wallpaper-preview.jpg",
-      type: "Convertible",
+      type: "EV",
       transmission: "Automatic",
       fuel: "Diesel",
-      seatingCapacity: 2,
+      seatingCapacity: 4,
       model: 2023,
       price: 70,
       rating: 4.8,
@@ -51,7 +51,7 @@ const cars = [
       name: "Car 4",
       speed: 125,
       img: "https://c4.wallpaperflare.com/wallpaper/66/25/239/machine-grey-background-volvo-wallpaper-preview.jpg",
-      type: "Hatchback",
+      type: "Sedan",
       transmission: "Manual",
       fuel: "Diesel",
       seatingCapacity: 5,
@@ -66,10 +66,10 @@ const cars = [
       name: "Car 5",
       speed: 140,
       img: "https://c4.wallpaperflare.com/wallpaper/66/25/239/machine-grey-background-volvo-wallpaper-preview.jpg",
-      type: "Minivan",
+      type: "Sedan",
       transmission: "Automatic",
       fuel: "Petrol",
-      seatingCapacity: 8,
+      seatingCapacity: 7,
       model: 2022,
       price: 80,
       rating: 4.7,
@@ -81,10 +81,10 @@ const cars = [
       name: "Car 6",
       speed: 115,
       img: "https://c4.wallpaperflare.com/wallpaper/66/25/239/machine-grey-background-volvo-wallpaper-preview.jpg",
-      type: "Truck",
+      type: "Luxury",
       transmission: "Manual",
       fuel: "Diesel",
-      seatingCapacity: 3,
+      seatingCapacity: 5,
       model: 2021,
       price: 65,
       rating: 4.2,
@@ -96,10 +96,10 @@ const cars = [
       name: "Car 7",
       speed: 105,
       img: "https://c4.wallpaperflare.com/wallpaper/66/25/239/machine-grey-background-volvo-wallpaper-preview.jpg",
-      type: "Coupe",
+      type: "Sedan",
       transmission: "Automatic",
       fuel: "Diesel",
-      seatingCapacity: 2,
+      seatingCapacity: 5,
       model: 2023,
       price: 75,
       rating: 4.6,
@@ -111,7 +111,7 @@ const cars = [
       name: "Car 8",
       speed: 130,
       img: "https://c4.wallpaperflare.com/wallpaper/66/25/239/machine-grey-background-volvo-wallpaper-preview.jpg",
-      type: "Electric",
+      type: "EV",
       transmission: "Automatic",
       fuel: "Electric",
       seatingCapacity: 4,
@@ -125,15 +125,13 @@ const cars = [
   ];
   
 
-async function deleteFirst(){
-    await Car.deleteMany({})
+
+
+async function seedDB(){
+  await Car.deleteMany({})
     .then(()=>{
         console.log("previous data deleted");
     })
-}
-deleteFirst();
-
-async function seedDB(){
     await Car.insertMany( cars);
     console.log('data seeded');
 }
