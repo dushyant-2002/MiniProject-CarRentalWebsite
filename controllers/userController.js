@@ -46,7 +46,11 @@ const signin = async(req,res)=>{
             return res.status(400).json({message : "Invalid Credentials"});
         }
         const token = jwt.sign({username:existinguser.username,id:existinguser._id},SECRETKEY);
+        req.headers.authorization = `Bearer ${token}`;
+        console.log(req.headers.authorization);
         res.status(201).json({user:existinguser,token:token});
+        // res.redirect("/book");
+        
 
     } catch (error) {
         console.log(error);

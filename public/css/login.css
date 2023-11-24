@@ -288,3 +288,9 @@ input {
   margin-right: 4vw;
 
 }
+.main{
+  background-color: rgba(228, 224, 224, 0.516);
+}
+.form{
+  background-color: white;
+}
