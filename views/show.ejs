@@ -512,7 +512,7 @@ input {
     <div class="car-details-container">
       <div class="img"><img class="car-image" src="https://c4.wallpaperflare.com/wallpaper/66/25/239/machine-grey-background-volvo-wallpaper-preview.jpg" alt="Car 1"></div>
       
-      <p class="car-name">Maruti Suzuki Swift(2022)</p>
+      <p class="car-name"><%=cars.name%>(<%=cars.model%>)</p>
 
       <!-- <div class="details">
         <div class="detail-item">Detail 1</div>
@@ -523,18 +523,18 @@ input {
       <div class="booking-details">
         <div class="pickup">
           <h3>Pickup Date</h3>
-          <p>22/06/2023</p>
+          <p><%=pickupDate%></p>
           <h3>Time</h3>
-          <p>12:06</p>
+          <p><%=pickupTime%></p>
         </div>
         <div class="arrow"><span class="material-symbols-outlined">
           arrow_right_alt
           </span></div>
         <div class="drop">
           <h3>Drop Date</h3>
-          <p>22/06/2023</p>
+          <p><%=dropDate%></p>
           <h3>Time</h3>
-          <p>12:06</p>
+          <p><%=dropTime%></p>
         </div>
       </div>
     </div>

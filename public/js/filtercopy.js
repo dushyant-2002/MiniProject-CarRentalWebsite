@@ -40,11 +40,18 @@ function getQueryParams(url) {
 const URL = window.location.href;
 const queryParams = getQueryParams(URL);
 place = queryParams.location;
+let {pickupDate,pickupTime,dropDate,dropTime} = queryParams;
 console.log(place);
+console.log(pickupDate);
+console.log(pickupTime);
+console.log(dropDate);
+console.log(dropTime);
+
 // fetching cars with given location
 axios.get(`/getcars/${place}`)
         .then((res) => {
             cars = res.data;
+            filter(cars);
             // console.log(cars);
         })
         .catch((err) => {
@@ -95,7 +102,8 @@ function filter(cars){
         <img class="car-image" src="${car.img}" alt="${car.name}">
         <div class="car-details">
           <!-- Car Name -->
-          <!-- <div class="detail-item"><strong>${car.name}</strong></div> -->
+          <div style="width: 100% ; font-size: 1rem;"><strong>${car.name}</strong>
+          </div> 
       
           <!-- Speedometer -->
           <div class="detail-item">
@@ -142,7 +150,7 @@ function filter(cars){
             ${car.price}/hr
           </div>
         </div>
-        <a href="/show/${car._id}"><button class="nav-button full-width bookbtn"><strong>Book Now</strong></button></a>
+        <a href="/show/?id=${car._id}&location=${place}&pickupDate=${pickupDate}&pickupTime=${pickupTime}&dropDate=${dropDate}&dropTime=${dropTime}"><button class="nav-button full-width bookbtn"><strong>Book Now</strong></button></a>
       </div>
       `;
     })

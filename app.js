@@ -8,7 +8,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 const authentication = require("./router/authentication");
-const noteRouter = require('./router/notes');
+// const noteRouter = require('./router/notes');
 const auth = require("./middlewares/auth");
 
 //setting static files
@@ -74,11 +74,13 @@ app.get("/getcars/:location",async(req,res)=>{
     let cars =  await Car.find({location:location});
     res.send(cars)
 })
-app.get("/show/:id",async(req,res)=>{
-    let{id} = req.params;
+app.get("/show",async(req,res)=>{
+    let{id,location,pickupDate,pickupTime,dropDate,dropTime} = req.query;
     let cars = await Car.findById(id);
+    console.log(id);
+    console.log(cars);
     // res.send("req recieved");
-    res.render("show.ejs");
+    res.render("show.ejs",{id,location,pickupDate,pickupTime,dropDate,dropTime,cars});
 })
 seedDB();
 //server

@@ -9,11 +9,13 @@ const auth = (req,res,next)=>{
             token = token.split(" ")[1];
             let user = jwt.verify(token,SECRETKEY);
             req.userId = user.id;
+            console.log(req.userId);
+            next();
         }
         else{
+            console.log("no token")
             res.status(401).json({message:"Unauthorized User"});
         }
-        next();
     } catch (error) {
         console.log(error);
          

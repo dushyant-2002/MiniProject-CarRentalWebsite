@@ -50,7 +50,7 @@
                             <p class="fitems">Sedan</p>
                         </div>
                         <div class="car-types-items list-items">
-                            <p class="fitems">EV</p>
+                            <p class="fitems">SUV</p>
                         </div>
                         <div class="car-types-items list-items">
                             <p class="fitems">Luxury</p>
@@ -121,6 +121,7 @@
   
   <% cars.forEach((car) => { %>
     <!-- Car Item -->
+    <a href="/show/<%=car._id%>">
     <div class="car-item">
       <img class="car-image" src="<%= car.img %>" alt="<%= car.name %>">
       <div class="car-details">
@@ -172,8 +173,8 @@
           <%= car.price %>/hr
         </div>
       </div>
-      <a href="/show/<%=car._id%>"><button class="nav-button full-width bookbtn"><strong>Book Now</strong></button></a>
-    </div>
+      <button class="nav-button full-width bookbtn"><strong>Book Now</strong></button>
+    </div></a>
   <% }); %>
 </div>
         
