@@ -4,15 +4,17 @@ const path = require('path');
 const mongoose = require('mongoose');
 const seedDB = require('./seed');
 const Car = require("./models/Car");
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 const authentication = require("./router/authentication");
 const noteRouter = require('./router/notes');
 const auth = require("./middlewares/auth");
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.json());
+
 //setting static files
 
 // app.use(express.static(path.join(__dirname,'public')));
-app.use(express.urlencoded({extended:true}));
+
 app.use((req,res,next)=>{ 
     console.log("HTTP Method - " + req.method + ", URL - " + req.url);
     next();
@@ -33,9 +35,14 @@ mongoose.connect('mongodb://127.0.0.1:27017/carrental')
 })
 
 //routers
-app.use("/users",authentication);
+app.use("/",authentication);
 // app.use("/notes",noteRouter);
-
+app.get("/login",async(req,res)=>{
+    res.render("user/login");
+})
+app.get("/signup",async(req,res)=>{
+    res.render("user/signup");
+})
 app.get("/book",async(req,res)=>{
     let cars = await Car.find({});
     res.render("search.ejs",{cars});
@@ -45,7 +52,6 @@ app.post("/book",async(req,res)=>{
     console.log(req.body);
     res.send("hi");
 })
-app.get("/book/")
 app.get("/book/:id",async(req,res)=>{
     let {id} = req.params;
     
@@ -63,10 +69,16 @@ app.get("/search",async(req,res)=>{
 })
 
 // for axios 
-app.get("/getcars",async(req,res)=>{
-    // let{location} = req.params;
-    let cars =  await Car.find();
+app.get("/getcars/:location",async(req,res)=>{
+    let{location} = req.params;
+    let cars =  await Car.find({location:location});
     res.send(cars)
+})
+app.get("/show/:id",async(req,res)=>{
+    let{id} = req.params;
+    let cars = await Car.findById(id);
+    // res.send("req recieved");
+    res.render("show.ejs");
 })
 seedDB();
 //server

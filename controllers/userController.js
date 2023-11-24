@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const SECRETKEY = "NOTESAPI";
 const signup = async(req,res)=>{
     //existing user check
-    const{firstname,lastname,username,phone,password} = req.body;
+    const{firstname,lastname,username,phone,email,password} = req.body;
     try {
         const existinguser = await User.findOne({username:username});
         if(existinguser){
@@ -19,6 +19,7 @@ const signup = async(req,res)=>{
             lastname:lastname,
             username:username,
             phone:phone,
+            email:email,
             password:hashedpassword
 
         })

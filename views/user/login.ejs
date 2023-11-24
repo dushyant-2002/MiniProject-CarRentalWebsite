@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/login.css" />
+    <script src="js/login.js" defer></script>
+    <title>GoWheels</title>
+    <style>
+      .create{
+        font-size: 0.8rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="nav-div">
+      
+          <div class="nav-left">
+            <!-- <h4 class="go">GoWheels</h4> -->
+            <h4 class="go"><a href="/book" style="text-decoration: none; color: aliceblue;">GoWheels</a></h4>
+
+          </div>
+          <div class="nav-right">
+            <button class="nav-button"><strong>Become a Host</strong></button>
+            <a class="nav-a log" href="#">Login/Signup</a>
+            <a class="nav-a h" href="#">Help</a>
+            <a class="nav-a c" href="#">Contact </a>
+          </div>
+        
+      </div>
+      
+    <form action="/signin" class="form" method="post" >
+      <h1 class="text-center">Login</h1>
+     
+      <div class="form-step form-step-active">
+        <div class="input-group">
+          <label for="username">Username</label>
+          <input type="text" name="username" id="username"  required/>
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="text" name="password" id="password" />
+        </div>         
+      </div>
+        
+        <div class="btns-group">
+          <button type="submit" class="btn">Log in</button>
+        </div>
+        <div class="input-group create">
+          Don't have an account   |   <a href="/signup" style="text-decoration: none;  ">Signup</a>
+        </div> 
+      </div>
+    </form>
+
+ 
+  </body>
+</html>
