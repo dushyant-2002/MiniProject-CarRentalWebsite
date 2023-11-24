@@ -5,6 +5,8 @@ let seats;
 let fuel;
 let transmission;
 let place;
+
+
 //extracting location from current url
 function getQueryParams(url) {
     var queryParams = {};
@@ -33,27 +35,33 @@ function getQueryParams(url) {
     return queryParams;
   }
   
-//   // Example usage:
-//   console.log(window.location.href);
-// var URL = window.location.href;
-// var queryParams = getQueryParams(URL);
-// place = queryParams.location;
-// place = place.replace('+',' ');
-// console.log(place);
-axios.get(`/getcars`)
+  // Example usage:
+  console.log(window.location.href);
+const URL = window.location.href;
+const queryParams = getQueryParams(URL);
+place = queryParams.location;
+console.log(place);
+// fetching cars with given location
+axios.get(`/getcars/${place}`)
         .then((res) => {
             cars = res.data;
-            console.log(cars);
+            // console.log(cars);
         })
         .catch((err) => {
             console.log(err);
         });
- 
+
+//reload on reset button
+const reset = document.querySelector("#reset");
+reset.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    location.reload();
+})
 function res(cars){
     if (sortby == "High to low") {
         cars.sort((car1, car2) => car2.price - car1.price);
         filter(cars);
-        console.log(cars);
+        // console.log(cars);
 
     }
     if(sortby == "Low to High"){
@@ -134,12 +142,21 @@ function filter(cars){
             ${car.price}/hr
           </div>
         </div>
-        <button class="nav-button full-width"><strong>Book Now</strong></button>
+        <a href="/show/${car._id}"><button class="nav-button full-width bookbtn"><strong>Book Now</strong></button></a>
       </div>
       `;
     })
     carGrid.innerHTML = s;
 }
+// const btn = document.querySelectorAll(".bookbtn");
+// console.log(btn);
+// btn.forEach(item => {
+//   item.addEventListener('click',()=>{
+//     console.log("sfsf");
+//     // console.log(e);
+//   })  
+// });
+
 
 document.addEventListener("DOMContentLoaded", function () {
     // Get all sort items

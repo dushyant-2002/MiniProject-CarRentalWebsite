@@ -13,11 +13,11 @@
         <div class="nav-div">
             <nav>
               <div class="nav-left">
-                <h4 class="go">GoWheels</h4>
+                <h4 class="go"><a href="/book" style="text-decoration: none; color: aliceblue;">GoWheels</a></h4>
               </div>
               <div class="nav-right">
                 <button class="nav-button"><strong>Become a Host</strong></button>
-                <a class="nav-a log" href="#">Login/Signup</a>
+                <a class="nav-a log" href="/login">Login/Signup</a>
                 <a class="nav-a h" href="#">Help</a>
                 <a class="nav-a c" href="#">Contact </a>
               </div>
@@ -33,7 +33,7 @@
                     <div class="sort-by"> 
                         Sort By
                     </div>
-                    <form action="/search">
+                    <form action="/search" id="reset">
                     <button id="reset">Reset</button></form>
                 </div>
                 <div class="sort-list">
@@ -172,7 +172,7 @@
           <%= car.price %>/hr
         </div>
       </div>
-      <button class="nav-button full-width"><strong>Book Now</strong></button>
+      <a href="/show/<%=car._id%>"><button class="nav-button full-width bookbtn"><strong>Book Now</strong></button></a>
     </div>
   <% }); %>
 </div>

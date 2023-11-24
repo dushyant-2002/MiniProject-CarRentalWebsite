@@ -11,7 +11,6 @@ const auth = (req,res,next)=>{
             req.userId = user.id;
         }
         else{
-            res.render("user/signup.ejs");
             res.status(401).json({message:"Unauthorized User"});
         }
         next();

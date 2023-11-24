@@ -13,7 +13,7 @@ const cars = [
       model: 2022,
       price: 50,
       rating: 4.5,
-      location: "City A",
+      location: "CityA",
       features: ["GPS", "Bluetooth", "Air Conditioning"],
       availability: 10
     },
@@ -28,7 +28,7 @@ const cars = [
       model: 2021,
       price: 60,
       rating: 4.2,
-      location: "City A",
+      location: "CityA",
       features: ["Backup Camera", "Leather Seats", "Sunroof"],
       availability: 8
     },
@@ -43,7 +43,7 @@ const cars = [
       model: 2023,
       price: 70,
       rating: 4.8,
-      location: "City C",
+      location: "CityC",
       features: ["Convertible Top", "Premium Sound System"],
       availability: 12
     },
@@ -58,7 +58,7 @@ const cars = [
       model: 2020,
       price: 45,
       rating: 4.0,
-      location: "City D",
+      location: "CityD",
       features: ["Compact Size", "Fuel Efficient"],
       availability: 6
     },
@@ -73,7 +73,7 @@ const cars = [
       model: 2022,
       price: 80,
       rating: 4.7,
-      location: "City E",
+      location: "CityE",
       features: ["Spacious Interior", "Entertainment System"],
       availability: 15
     },
@@ -88,7 +88,7 @@ const cars = [
       model: 2021,
       price: 65,
       rating: 4.2,
-      location: "City F",
+      location: "CityF",
       features: ["Off-Road Capability", "Towing Package"],
       availability: 9
     },
@@ -103,7 +103,7 @@ const cars = [
       model: 2023,
       price: 75,
       rating: 4.6,
-      location: "City G",
+      location: "CityG",
       features: ["Sporty Design", "Advanced Safety Features"],
       availability: 11
     },
@@ -118,7 +118,7 @@ const cars = [
       model: 2022,
       price: 90,
       rating: 4.9,
-      location: "City H",
+      location: "CityH",
       features: ["Zero Emissions", "High-Tech Interior"],
       availability: 7
     }
