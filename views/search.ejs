@@ -44,7 +44,7 @@
     <!-- <div>
       <input type="text" class="long-input" placeholder="Select Location">
     </div> -->
-    <form action="/search" method="get" class="mainform">
+    <form action="/search" method="get" class="mainform" id="form" >
     <div class="input-group mb-3">
       <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="23" height="25" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
         <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
@@ -56,23 +56,23 @@
         <li><a class="dropdown-item" href="#">Mathura</a></li>
       </ul>
       <input type="text" class="form-control long-input" id="locationinp"  name="location" aria-label="Text input with dropdown button"
-      placeholder="Select Location">
+      placeholder="Select Location" required>
     </div>
     <br><br>  
       <div class="pickup">
       <label for="pickupDate">Pickup Date :</label><br>
-      <input class="niche" type="date" id="pickupDate" name="pickupDate" value="Siya"><br>
+      <input class="niche" type="date" id="pickupDate" name="pickupDate"  required><br>
       <label for="pickupTime">Pickup Time : </label><br>
-      <input class="niche" type="time" id="pickupTime" name="pickupTime" value="Varshney"><br><br>
+      <input class="niche" type="time" id="pickupTime" name="pickupTime"  required><br><br>
     </div>
      
 
 <br>
   <div class="pickup">
   <label for="dropDate">Drop Date :</label><br>
-  <input class="niche" type="date" id="dropDate" name="dropDate" value="Siya"><br>
+  <input class="niche" type="date" id="dropDate" name="dropDate" value="Siya" required><br>
   <label for="dropTime">Drop Time :</label><br>
-  <input class="niche" type="time" id="dropTime" name="dropTime" value="Varshney"><br><br>
+  <input class="niche" type="time" id="dropTime" name="dropTime" value="Varshney" required><br><br>
 </div>
 <br><br><br>
 <input class="submit-button" type="submit" value="Search">   
@@ -102,7 +102,7 @@
 <h2 class="explore">Explore Our Cars...</h2>
 <br>
 <div class="car-grid">
-  <% cars.forEach((car) => { %>
+  <% cars.slice(0,6).forEach((car,index) => { %>
     <!-- Car Item -->
     <div class="car-item">
       <img class="car-image" src="<%= car.img %>" alt="<%= car.name %>">
@@ -156,7 +156,7 @@
           <%= car.price %>/hr
         </div>
       </div>
-      <button class="nav-button full-width"><strong>Book Now</strong></button>
+      <button class="nav-button full-width"><a href="#form" style="text-decoration: none; color: white;"><strong>Book Now</strong></a></button>
     </div>
   <% }); %>
 </div>

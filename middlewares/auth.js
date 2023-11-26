@@ -4,16 +4,17 @@ const SECRETKEY = "NOTESAPI";
 const auth = (req,res,next)=>{
 
     try {
-        let token = req.headers.authorization;
+        // console.log(req.headers.authorization);
+        console.log(req.cookies.access_token);
+        let token = req.cookies.access_token;
         if(token){
-            token = token.split(" ")[1];
+            // token = token.split(" ")[1];
             let user = jwt.verify(token,SECRETKEY);
             req.userId = user.id;
             console.log(req.userId);
             next();
         }
         else{
-            console.log("no token")
             res.status(401).json({message:"Unauthorized User"});
         }
     } catch (error) {

@@ -25,6 +25,7 @@ const signup = async(req,res)=>{
         })
          //token generate
          const token = jwt.sign({username:result.username,id:result._id},SECRETKEY);
+         res.cookie('access_token',token);
          res.status(201).json({user:result,token:token});
     } catch (error) {
         console.log(error);
@@ -34,6 +35,7 @@ const signup = async(req,res)=>{
 }  
 
 const signin = async(req,res)=>{
+
     const{username,password} = req.body;
     try {
         const existinguser = await User.findOne({username:username});
@@ -46,8 +48,7 @@ const signin = async(req,res)=>{
             return res.status(400).json({message : "Invalid Credentials"});
         }
         const token = jwt.sign({username:existinguser.username,id:existinguser._id},SECRETKEY);
-        req.headers.authorization = `Bearer ${token}`;
-        console.log(req.headers.authorization);
+        res.cookie('access_token',token);
         res.status(201).json({user:existinguser,token:token});
         // res.redirect("/book");
         
