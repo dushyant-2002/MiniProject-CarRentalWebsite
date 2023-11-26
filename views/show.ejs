@@ -7,6 +7,8 @@
   <!-- <link rel="stylesheet" href="./css/login.css"> -->
   <!-- <link rel="stylesheet" href="./css/show.css"> -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,150,0,0" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  
   <style>
 .material-symbols-outlined{
   font-size: 3rem;
@@ -510,10 +512,10 @@ input {
     </div>
   <div class="container">
     <div class="car-details-container">
-      <div class="img"><img class="car-image" src="https://c4.wallpaperflare.com/wallpaper/66/25/239/machine-grey-background-volvo-wallpaper-preview.jpg" alt="Car 1"></div>
+      <span style="display: none;" id="carId"><%=cars._id%></span>
+      <div class="img" ><img class="car-image" id="carimg" src="<%=cars.img%>" alt="Car 1"></div>
       
-      <p class="car-name"><%=cars.name%>(<%=cars.model%>)</p>
-
+      <p class="car-name" id="carname"><%=cars.name%>(<%=cars.model%>)</p>
       <!-- <div class="details">
         <div class="detail-item">Detail 1</div>
         <div class="detail-item">Detail 2</div>
@@ -523,18 +525,18 @@ input {
       <div class="booking-details">
         <div class="pickup">
           <h3>Pickup Date</h3>
-          <p><%=pickupDate%></p>
+          <p id="pickupDate"><%=pickupDate%></p>
           <h3>Time</h3>
-          <p><%=pickupTime%></p>
+          <p id="pickupTime"><%=pickupTime%></p>
         </div>
         <div class="arrow"><span class="material-symbols-outlined">
           arrow_right_alt
           </span></div>
         <div class="drop">
           <h3>Drop Date</h3>
-          <p><%=dropDate%></p>
+          <p id="dropDate"><%=dropDate%></p>
           <h3>Time</h3>
-          <p><%=dropTime%></p>
+          <p id="dropTime"><%=dropTime%></p>
         </div>
       </div>
     </div>
@@ -544,29 +546,113 @@ input {
       <div class="price-details">
         <div class="price-row">
           <span class="price-label">Car Rental Price:</span>
-          <span class="price-value">$200</span>
-        </div>
+          <span id="carPrice" style="display: none;"><%=cars.price%></span>
+          <span class="price-value" id="rentalPrice">$200</span>
+        </div> 
         <div class="price-row">
           <span class="price-label">Discount:</span>
-          <span class="price-value">-$20</span>
+          <span class="price-value" style="color: rgb(117, 225, 8);" id="discount">-$20</span>
         </div>
         <div class="price-row">
           <span class="price-label">Delivery Charges:</span>
-          <span class="price-value">$10</span>
+          <span class="price-value" style="color: red;" id="deliveryCharges">$10</span>
         </div>
         <div class="price-row total">
           <span class="price-label">Total Amount:</span>
-          <span class="price-value">$190</span>
+          <span class="price-value" id="totalPrice">$190</span>
         </div>
       </div>
-      <form id="paymentForm">
-        <button type="submit">Rent Car</button>
-      </form>
+      <!-- <form id="paymentForm"> -->
+        <button type="submit" id="rentbtn">Rent Car</button>
+      <!-- </form> -->
     </div>
   </div>
 
   <footer>
     <p>&copy; 2023 Car Rental. All rights reserved.</p>
   </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+
+    //creating object for storing in order model and sending post request using axios
+    const carImage = document.getElementById('carimg');
+    const carName = document.getElementById('carname');
+    const pickupDate = document.getElementById('pickupDate');
+    const pickupTime = document.getElementById('pickupTime');
+    const dropDate = document.getElementById('dropDate');
+    const dropTime = document.getElementById('dropTime');
+    const totalPrice = document.getElementById('totalPrice');
+    
+
+  //function for calculating time in hours
+  let pickupdate = pickupDate.innerText;
+  let pickuptime = pickupTime.innerText;
+  let dropdate = dropDate.innerText;
+  let droptime = dropTime.innerText;
+  function calculateTimeDifference(pickupDate, pickupTime, dropDate, dropTime) {
+  // Combine date and time strings and create Date objects
+  const pickupDateTime = new Date(`${pickupDate}T${pickupTime}`);
+  const dropDateTime = new Date(`${dropDate}T${dropTime}`);
+  console.log(`pick : ${pickupDateTime}  drop : ${dropDateTime}`);
+  // Calculate the time difference in milliseconds
+  const timeDifferenceMs = dropDateTime - pickupDateTime;
+
+  // Convert milliseconds to hours
+  const timeDifferenceHours = timeDifferenceMs / (1000 * 60 * 60);
+
+  return timeDifferenceHours;
+}
+//calculating Costs
+const totalTime = calculateTimeDifference(pickupdate,pickuptime,dropdate,droptime);
+console.log(`total time in hours :${totalTime}`);
+const carPrice = document.getElementById('carPrice');
+let totalrent = (carPrice.innerText)*totalTime;
+console.log(totalrent);
+const rentalPrice = document.getElementById('rentalPrice');
+rentalPrice.innerText=`$${totalrent}`;
+//now 20% discount
+let discountedPrice = (totalrent*20)/100;
+const discount = document.getElementById('discount');
+discount.innerText=`-$${discountedPrice}`;
+const totalCost = document.getElementById('totalPrice');
+totalCost.innerText = totalrent-discountedPrice;
+const carId = document.getElementById('carId');
+const bookdata={
+      carId:carId.innerText,
+      name:carName.innerText,
+      img:carImage.getAttribute('src'),
+      pickupDate:pickupDate.innerText,
+      pickupTime:pickupTime.innerText,
+      dropDate:dropDate.innerText,
+      dropTime:dropTime.innerText,
+      price:(totalrent-discountedPrice),
+      totalTime:totalTime
+    }
+    console.log(bookdata);
+    console.log(carImage.getAttribute('src'),carName.innerText,pickupDate.innerText,pickupTime.innerText,dropDate.innerText,dropTime.innerText,totalPrice.innerText.substring(1));
+
+    //sending axios request for renting car
+    const rentbtn = document.getElementById('rentbtn');
+rentbtn.addEventListener("click", () => {
+    axios.post("/booknow", bookdata)
+        .then((res) => {
+            console.log(res);
+            // Check if the response contains a redirect status (e.g., 302 or 303)
+            if (res.status === 200 && res.data.startsWith('<!DOCTYPE html>')) {
+                // If it looks like an HTML response, redirect to the orders page
+                window.location.href = "/orders"; // Update the URL as needed
+            } else {
+                // Handle other responses as needed
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+});
+
+
+
+})
+  </script>
 </body>
 </html>
