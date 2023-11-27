@@ -504,9 +504,14 @@ input {
         </div>
         <div class="nav-right">
           <button class="nav-button"><strong>Become a Host</strong></button>
-          <a class="nav-a log" href="#">Login/Signup</a>
-          <a class="nav-a h" href="#">Help</a>
-          <a class="nav-a c" href="#">Contact </a>
+          <%if(!isAuthenticated){%>
+            <a class="nav-a log" href="/login" >Login/Signup</a>
+            <a class="nav-a h" href="#">Help</a>
+            <%}%>
+          <% if(isAuthenticated){%>
+            <a class="nav-a log" href="/logout">Logout</a>
+            <a class="nav-a h" href="/orders">My Orders</a>
+            <%}%>
         </div>
       
     </div>
@@ -547,19 +552,19 @@ input {
         <div class="price-row">
           <span class="price-label">Car Rental Price:</span>
           <span id="carPrice" style="display: none;"><%=cars.price%></span>
-          <span class="price-value" id="rentalPrice">$200</span>
+          <span class="price-value" id="rentalPrice">$₹00</span>
         </div> 
         <div class="price-row">
           <span class="price-label">Discount:</span>
-          <span class="price-value" style="color: rgb(117, 225, 8);" id="discount">-$20</span>
+          <span class="price-value" style="color: rgb(117, 225, 8);" id="discount">-₹20</span>
         </div>
         <div class="price-row">
           <span class="price-label">Delivery Charges:</span>
-          <span class="price-value" style="color: red;" id="deliveryCharges">$10</span>
+          <span class="price-value" style="color: red;" id="deliveryCharges">₹ 10</span>
         </div>
         <div class="price-row total">
           <span class="price-label">Total Amount:</span>
-          <span class="price-value" id="totalPrice">$190</span>
+          <span class="price-value" id="totalPrice">₹190</span>
         </div>
       </div>
       <!-- <form id="paymentForm"> -->
@@ -598,9 +603,10 @@ input {
   const timeDifferenceMs = dropDateTime - pickupDateTime;
 
   // Convert milliseconds to hours
-  const timeDifferenceHours = timeDifferenceMs / (1000 * 60 * 60);
+  // const timeDifferenceHours = timeDifferenceMs / (1000 * 60 * 60);
+  const timeDifferenceHours = (timeDifferenceMs / (1000 * 60 * 60)).toFixed(2);
 
-  return timeDifferenceHours;
+  return parseFloat(timeDifferenceHours);
 }
 //calculating Costs
 const totalTime = calculateTimeDifference(pickupdate,pickuptime,dropdate,droptime);
@@ -609,13 +615,13 @@ const carPrice = document.getElementById('carPrice');
 let totalrent = (carPrice.innerText)*totalTime;
 console.log(totalrent);
 const rentalPrice = document.getElementById('rentalPrice');
-rentalPrice.innerText=`$${totalrent}`;
+rentalPrice.innerText=`₹ ${totalrent}`;
 //now 20% discount
 let discountedPrice = (totalrent*20)/100;
 const discount = document.getElementById('discount');
-discount.innerText=`-$${discountedPrice}`;
+discount.innerText=`-₹ ${discountedPrice}`;
 const totalCost = document.getElementById('totalPrice');
-totalCost.innerText = totalrent-discountedPrice;
+totalCost.innerText = `₹ ${totalrent-discountedPrice}`;
 const carId = document.getElementById('carId');
 const bookdata={
       carId:carId.innerText,

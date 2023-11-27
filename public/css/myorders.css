@@ -1,0 +1,197 @@
+/* ********************************************************************************************** */
+/* Navbar ki CSS */
+*{
+    padding: 0;
+    margin: 0;
+}
+.main{
+    position: absolute;
+    width: 100%;
+}
+.nav-div{
+    display:flex;
+    justify-content: space-between;
+    /* overflow: hidden; */ 
+    /* display: flex; */
+    background-color: #333;
+
+/* for navbar static */
+    position: fixed;
+    /* top: 0; */
+    width: 100%;
+    z-index: 1; 
+    height: 10%;
+} 
+
+.go{
+    color:white;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 27px;
+    font-weight: bold;
+    /* margin-bottom: 3px;
+    margin-left: 10px; */
+    
+   }
+
+ .nav-a {
+    float: right;
+    display: block;
+    color: #f2f2f2;
+    text-align:center;
+    padding: 14px 16px;
+    text-decoration: none;
+   } 
+
+   .nav-button{
+    background-color:green;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 100px;
+   }
+
+   .nav-button:hover{
+    background-color: #29b943;
+   }
+
+
+.log{
+    background-color: #128adb;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+} 
+.log:hover{
+    background-color:rgb(106, 162, 218);
+}
+
+.nav-left{
+    /* float: left; */
+    /* margin-left: 15px;
+    margin-bottom: 15px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+}  
+ .nav-right{
+    /* float: right; */
+    padding-top:15px ;
+    padding-right: 10px;
+}  
+ .h{
+    margin-right:15px;
+ }
+
+ /* my  order list */
+
+ .my-orders h2{
+    margin-left:20px ;
+ }
+ .my-orders{
+    /* height: 80vh; */
+    margin-top: 80px;
+    /* padding: 10px; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    /* border: 2px solid red; */
+ }
+ .car-item {
+    background-color: #a3bacf;
+    border-radius: 20px;
+    height:50vh;
+    padding: 10px;
+    margin: 20px;
+    /* text-align: center; */
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center; 
+    /* border: 2px solid red; */
+  }
+  
+  /* .car-image img{
+    height: 60%;
+    width: 30%;
+    object-fit: fill;
+    overflow: hidden;
+  } */
+  .car-image{
+    /* height: 60%;
+    width: 30%; */
+    /* float: left; */
+    /* height: 30%; */
+    width: 35%;
+    height: 90%;
+    
+    /* background-color: #7dadda; */
+    /* border-radius:5px; */
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+    /* margin: 3vw; */
+    /* border: 2px solid red; */
+    
+  }
+  .car-image img{
+    height: 100%;
+    width:100%;
+    border-radius:5px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+    /* object-fit: cover; */
+    /* overflow: hidden; */
+    
+  }
+  .car-details{
+    display: flex;
+    /* border: 2px solid red; */
+    width: 50vw;
+    height: 90%;
+    flex-direction: column;
+    /* padding: 20px; */
+    /* gap: 3vw; */
+    /* justify-content:center; */
+    /* align-items: center; */
+    margin: 3vw;
+    /* height: 80%; */
+    /* width: 40%; */
+    /* float: right; */
+    /* background-color: #7dadda; */
+    border-radius:5px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  .car-details:hover{
+      transform: scale(1.05);
+      box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+      background-color: #b0ceeb;
+  }
+  .top-details p{
+    /* border: 2px solid red; */
+    /* text-align: center; */
+    padding: 20px;
+    
+   
+  }
+  .mid-details{
+    /* border: 2px solid red; */
+    display: flex;
+    padding: 0 20px;
+    /* justify-content:center; */
+    gap: 0 10vw;
+    align-items: center;
+    
+  }
+  .mid-left{
+    /* border: 2px solid red; */
+  }
+  .bottom-details{
+    padding: 20px;
+  }

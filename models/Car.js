@@ -56,8 +56,8 @@ const carSchema = new mongoose.Schema({
             type:String
         }
     ],
-    availaibility:{
-        type:Number,
+    isBooked:{
+        type:Boolean,
     }
 })
 
