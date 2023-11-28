@@ -16,16 +16,11 @@ app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 let first;
 app.use(async(req, res, next) => {
-    // Check if cookies have already been deleted
+    //delete cookies at every restart
     if (!first) {
       // Clear all cookies
       console.log("cookies cleared");
       await res.clearCookie('access_token');
-    //   await res.clearCookie('userId');
-    //   res.clearCookie('cookieName2');
-      // Add more cookies if needed
-  
-      // Mark that cookies have been deleted to avoid repeating on each request
       first = true;
     }
   
