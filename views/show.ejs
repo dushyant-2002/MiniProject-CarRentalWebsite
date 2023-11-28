@@ -621,7 +621,8 @@ let discountedPrice = (totalrent*20)/100;
 const discount = document.getElementById('discount');
 discount.innerText=`-₹ ${discountedPrice}`;
 const totalCost = document.getElementById('totalPrice');
-totalCost.innerText = `₹ ${totalrent-discountedPrice}`;
+let overallcost = parseFloat(totalrent-discountedPrice).toFixed(2);
+totalCost.innerText = `₹ ${overallcost}`;
 const carId = document.getElementById('carId');
 const bookdata={
       carId:carId.innerText,
@@ -631,7 +632,7 @@ const bookdata={
       pickupTime:pickupTime.innerText,
       dropDate:dropDate.innerText,
       dropTime:dropTime.innerText,
-      price:(totalrent-discountedPrice),
+      price:overallcost,
       totalTime:totalTime
     }
     console.log(bookdata);
