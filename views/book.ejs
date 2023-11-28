@@ -17,9 +17,16 @@
               </div>
               <div class="nav-right">
                 <button class="nav-button"><strong>Become a Host</strong></button>
-                <a class="nav-a log" href="/login">Login/Signup</a>
-                <a class="nav-a h" href="#">Help</a>
-                <a class="nav-a c" href="#">Contact </a>
+                <%if(!isAuthenticated){%>
+                  <a class="nav-a log" href="/login" >Login/Signup</a>
+                  <a class="nav-a h" href="#">Help</a>
+                  <%}%>
+                <% if(isAuthenticated){%>
+                  <a class="nav-a log" href="/logout">Logout</a>
+                  <a class="nav-a h" href="/orders">My Orders</a>
+                  <%}%>
+                <!-- <a class="nav-a h" href="#">Help</a> -->
+                <!-- <a class="nav-a c" href="#">Contact </a> -->
               </div>
             </nav>
           </div>
@@ -121,6 +128,8 @@
   
   <% cars.forEach((car) => { %>
     <!-- Car Item -->
+    <%if(!car.isBooked){%>
+      
     <a href="/show/<%=car._id%>">
     <div class="car-item">
       <img class="car-image" src="<%= car.img %>" alt="<%= car.name %>">
@@ -136,6 +145,7 @@
             <path fill-rule="evenodd" d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.945 11.945 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0z"/>
           </svg>
           <%= car.speed %>km/h
+          
         </div>
 
         <!-- Star Rating -->
@@ -175,6 +185,7 @@
       </div>
       <button class="nav-button full-width bookbtn"><strong>Book Now</strong></button>
     </div></a>
+  <%}%>
   <% }); %>
 </div>
         

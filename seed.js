@@ -1,147 +1,3 @@
-// const mongoose = require('mongoose');
-// const Car = require('./models/Car');
-
-// const cars = [
-//     {
-//       name: "Maruti Suzuki Swift",
-//       speed: 120,
-//       img: "https://c4.wallpaperflare.com/wallpaper/66/25/239/machine-grey-background-volvo-wallpaper-preview.jpg",
-//       type: "Sedan",
-//       transmission: "Automatic",
-//       fuel: "Petrol",
-//       seatingCapacity: 5,
-//       model: 2022,
-//       price: 50,
-//       rating: 4.5,
-//       location: "Cityh",
-//       features: ["GPS", "Bluetooth", "Air Conditioning"],
-//       availability: 10
-//     },
-//     {
-//       name: "Car 2",
-//       speed: 130,
-//       img: "https://c4.wallpaperflare.com/wallpaper/66/25/239/machine-grey-background-volvo-wallpaper-preview.jpg",
-//       type: "Luxury",
-//       transmission: "Automatic",
-//       fuel: "Diesel",
-//       seatingCapacity: 7,
-//       model: 2021,
-//       price: 60,
-//       rating: 4.2,
-//       location: "Cityh",
-//       features: ["Backup Camera", "Leather Seats", "Sunroof"],
-//       availability: 8
-//     },
-//     {
-//       name: "Car 3",
-//       speed: 110,
-//       img: "https://c4.wallpaperflare.com/wallpaper/66/25/239/machine-grey-background-volvo-wallpaper-preview.jpg",
-//       type: "EV",
-//       transmission: "Automatic",
-//       fuel: "Diesel",
-//       seatingCapacity: 4,
-//       model: 2023,
-//       price: 70,
-//       rating: 4.8,
-//       location: "Cityh",
-//       features: ["Convertible Top", "Premium Sound System"],
-//       availability: 12
-//     },
-//     {
-//       name: "Car 4",
-//       speed: 125,
-//       img: "https://c4.wallpaperflare.com/wallpaper/66/25/239/machine-grey-background-volvo-wallpaper-preview.jpg",
-//       type: "Sedan",
-//       transmission: "Manual",
-//       fuel: "Diesel",
-//       seatingCapacity: 5,
-//       model: 2020,
-//       price: 45,
-//       rating: 4.0,
-//       location: "Cityh",
-//       features: ["Compact Size", "Fuel Efficient"],
-//       availability: 6
-//     },
-//     {
-//       name: "Car 5",
-//       speed: 140,
-//       img: "https://c4.wallpaperflare.com/wallpaper/66/25/239/machine-grey-background-volvo-wallpaper-preview.jpg",
-//       type: "Sedan",
-//       transmission: "Automatic",
-//       fuel: "Petrol",
-//       seatingCapacity: 7,
-//       model: 2022,
-//       price: 80,
-//       rating: 4.7,
-//       location: "Cityh",
-//       features: ["Spacious Interior", "Entertainment System"],
-//       availability: 15
-//     },
-//     {
-//       name: "Car 6",
-//       speed: 115,
-//       img: "https://c4.wallpaperflare.com/wallpaper/66/25/239/machine-grey-background-volvo-wallpaper-preview.jpg",
-//       type: "Luxury",
-//       transmission: "Manual",
-//       fuel: "Diesel",
-//       seatingCapacity: 5,
-//       model: 2021,
-//       price: 65,
-//       rating: 4.2,
-//       location: "Cityh",
-//       features: ["Off-Road Capability", "Towing Package"],
-//       availability: 9
-//     },
-//     {
-//       name: "Car 7",
-//       speed: 105,
-//       img: "https://c4.wallpaperflare.com/wallpaper/66/25/239/machine-grey-background-volvo-wallpaper-preview.jpg",
-//       type: "Sedan",
-//       transmission: "Automatic",
-//       fuel: "Diesel",
-//       seatingCapacity: 5,
-//       model: 2023,
-//       price: 75,
-//       rating: 4.6,
-//       location: "Cityh",
-//       features: ["Sporty Design", "Advanced Safety Features"],
-//       availability: 11
-//     },
-//     {
-//       name: "Car 8",
-//       speed: 130,
-//       img: "https://c4.wallpaperflare.com/wallpaper/66/25/239/machine-grey-background-volvo-wallpaper-preview.jpg",
-//       type: "EV",
-//       transmission: "Automatic",
-//       fuel: "Electric",
-//       seatingCapacity: 4,
-//       model: 2022,
-//       price: 90,
-//       rating: 4.9,
-//       location: "Cityh",
-//       features: ["Zero Emissions", "High-Tech Interior"],
-//       availability: 7
-//     }
-//   ];
-  
-
-
-
-// async function seedDB(){
-//   await Car.deleteMany({})
-//     .then(()=>{
-//         console.log("previous data deleted");
-//     })
-//     await Car.insertMany( cars);
-//     console.log('data seeded');
-// }
-
-
-// module.exports = seedDB;
-
-
-
-
 const mongoose = require('mongoose');
 const Car = require('./models/Car');
 
@@ -159,7 +15,8 @@ const cars = [
       rating: 4.5,
       location: "Cityh",
       features: ["GPS", "Bluetooth", "Air Conditioning"],
-      availability: 10
+      isBooked: false
+      
     },
     {
       name: "Tata Tigor XZ 2022",
@@ -174,8 +31,8 @@ const cars = [
       rating: 4.2,
       location: "Cityh",
       features: ["Backup Camera", "Leather Seats", "Sunroof"],
-      availability: 8
-    },
+      isBooked: false
+      },
     {
       name: "Hyundai Verna 2017",
       speed: 220,
@@ -189,7 +46,8 @@ const cars = [
       rating: 4.8,
       location: "Cityh",
       features: ["Convertible Top", "Premium Sound System"],
-      availability: 12
+      isBooked: false
+      
     },
     {
       name: "Hyundai Grand i10 2017",
@@ -204,8 +62,8 @@ const cars = [
       rating: 4.0,
       location: "Cityh",
       features: ["Compact Size", "Fuel Efficient"],
-      availability: 6
-    },
+      isBooked: false
+        },
     {
       name: "Hyundai Creta 2018",
       speed: 180,
@@ -219,7 +77,8 @@ const cars = [
       rating: 4.7,
       location: "Cityh",
       features: ["Spacious Interior", "Entertainment System"],
-      availability: 15
+      isBooked: false
+      
     },
     {
       name: "Maruti Suzuki Swift Dzire 2021",
@@ -234,8 +93,8 @@ const cars = [
       rating: 4.2,
       location: "Cityh",
       features: ["Off-Road Capability", "Towing Package"],
-      availability: 9
-    },
+      isBooked: false
+        },
     {
       name: "Toyota Glanza 2020",
       speed: 220,
@@ -249,7 +108,8 @@ const cars = [
       rating: 4.6,
       location: "Cityh",
       features: ["Sporty Design", "Advanced Safety Features"],
-      availability: 11
+      isBooked: false
+      
     },
     {
       name: "Maruti Suzuki BALENO 2019",
@@ -264,8 +124,8 @@ const cars = [
       rating: 4.9,
       location: "Cityh",
       features: ["Zero Emissions", "High-Tech Interior"],
-      availability: 7
-    },
+      isBooked: false
+        },
     {
       name: "Renault Duster 2014",
       speed: 180,
@@ -279,8 +139,8 @@ const cars = [
       rating: 4.9,
       location: "Cityh",
       features: ["Zero Emissions", "High-Tech Interior"],
-      availability: 7
-    },
+      isBooked: false
+        },
     {
       name: "Ford Ecosport 2017",
       speed: 220,
@@ -294,8 +154,8 @@ const cars = [
       rating: 4.9,
       location: "Cityh",
       features: ["Zero Emissions", "High-Tech Interior"],
-      availability: 7
-    },
+      isBooked: false
+        },
     {
       name: "Hyundai I20 2018",
       speed: 200,
@@ -309,8 +169,8 @@ const cars = [
       rating: 4.9,
       location: "Cityh",
       features: ["Zero Emissions", "High-Tech Interior"],
-      availability: 7
-    },
+      isBooked: false
+        },
     {
       name: "Mahindra XUV500 2018",
       speed: 200,
@@ -324,8 +184,8 @@ const cars = [
       rating: 4.9,
       location: "Cityh",
       features: ["Zero Emissions", "High-Tech Interior"],
-      availability: 7
-    },
+      isBooked: false
+        },
     {
       name: "Mercedes Benz GLC 300 2021",
       speed: 240,
@@ -339,8 +199,8 @@ const cars = [
       rating: 4.9,
       location: "Cityh",
       features: ["Zero Emissions", "High-Tech Interior"],
-      availability: 7
-    },
+      isBooked: false
+        },
     {
       name: "BMW 520D 2020",
       speed: 240,
@@ -354,8 +214,8 @@ const cars = [
       rating: 4.9,
       location: "Cityh",
       features: ["Zero Emissions", "High-Tech Interior"],
-      availability: 7
-    },
+      isBooked: false
+        },
     {
       name: "Maruti Suzuki Fronx 2023",
       speed: 200,
@@ -369,8 +229,8 @@ const cars = [
       rating: 4.9,
       location: "Cityh",
       features: ["Zero Emissions", "High-Tech Interior"],
-      availability: 7
-    },
+      isBooked: false
+        },
 
     {
       name: "Toyota Innova 2019",
@@ -385,8 +245,8 @@ const cars = [
       rating: 4.9,
       location: "Cityh",
       features: ["Zero Emissions", "High-Tech Interior"],
-      availability: 7
-    },
+      isBooked: false
+        },
 
     {
       name: "Hyundai Exter 2023",
@@ -401,8 +261,8 @@ const cars = [
       rating: 4.9,
       location: "Cityh",
       features: ["Zero Emissions", "High-Tech Interior"],
-      availability: 7
-    },
+      isBooked: false
+        },
 
     {
       name: "Renault Triber 2023",
@@ -417,8 +277,8 @@ const cars = [
       rating: 4.9,
       location: "Cityh",
       features: ["Zero Emissions", "High-Tech Interior"],
-      availability: 7
-    },
+      isBooked: false
+        },
 
     {
       name: "Skoda Rapid 2023",
@@ -433,8 +293,8 @@ const cars = [
       rating: 4.9,
       location: "Cityh",
       features: ["Zero Emissions", "High-Tech Interior"],
-      availability: 7
-    },
+      isBooked: false
+        },
 
     {
       name: "Toyota Urban Cruiser 2022",
@@ -449,8 +309,8 @@ const cars = [
       rating: 4.9,
       location: "Cityh",
       features: ["Zero Emissions", "High-Tech Interior"],
-      availability: 7
-    },
+      isBooked: false
+        },
 
     {
       name: "Honda Jazz 2015",
@@ -465,8 +325,8 @@ const cars = [
       rating: 4.9,
       location: "Cityh",
       features: ["Zero Emissions", "High-Tech Interior"],
-      availability: 7
-    },
+      isBooked: false
+        },
     {
       name: "Audi A4 2019",
       speed: 220,
@@ -480,8 +340,8 @@ const cars = [
       rating: 4.7,
       location: "Cityh",
       features: ["Advanced Safety", "Premium Sound System"],
-      availability: 5
-    },
+      isBooked: false
+        },
     {
       name: "Toyota Camry 2021",
       speed: 200,
@@ -495,8 +355,8 @@ const cars = [
       rating: 4.5,
       location: "Cityh",
       features: ["Fuel Efficiency", "Smart Connectivity"],
-      availability: 8
-    },
+      isBooked: false
+        },
     {
       name: "Mercedes-Benz C300 2022",
       speed: 250,
@@ -510,8 +370,8 @@ const cars = [
       rating: 4.8,
       location: "Cityh",
       features: ["Prestigious Design", "Intelligent Drive"],
-      availability: 6
-    },
+      isBooked: false
+        },
     {
       name: "Ford Mustang GT 2020",
       speed: 270,
@@ -525,8 +385,8 @@ const cars = [
       rating: 4.6,
       location: "Cityh",
       features: ["Muscle Car Power", "Iconic Design"],
-      availability: 3
-    },
+      isBooked: false
+        },
     {
       name: "Honda Civic 2021",
       speed: 190,
@@ -540,8 +400,8 @@ const cars = [
       rating: 4.4,
       location: "Cityh",
       features: ["Modern Design", "Fuel Efficiency"],
-      availability: 7
-    },
+      isBooked: false
+        },
 
     {
       name: "Tesla Model S 2023",
@@ -556,8 +416,8 @@ const cars = [
       rating: 4.9,
       location: "Cityh",
       features: ["Autopilot", "Long Range"],
-      availability: 2
-    },
+      isBooked: false
+        },
     {
       name: "Chevrolet Suburban 2022",
       speed: 180,
@@ -571,8 +431,8 @@ const cars = [
       rating: 4.5,
       location: "Cityh",
       features: ["Spacious Interior", "Towing Capacity"],
-      availability: 4
-    },
+      isBooked: false
+        },
     {
       name: "Nissan Altima 2020",
       speed: 200,
@@ -586,8 +446,8 @@ const cars = [
       rating: 4.2,
       location: "Cityh",
       features: ["Comfortable Ride", "Advanced Safety"],
-      availability: 6
-    },
+      isBooked: false
+        },
     {
       name: "Porsche 911 Carrera 4S 2021",
       speed: 280,
@@ -601,8 +461,8 @@ const cars = [
       rating: 4.8,
       location: "Cityh",
       features: ["Precision Engineering", "Convertible Top"],
-      availability: 1
-    },
+      isBooked: false
+        },
     {
       name: "Volkswagen Tiguan 2023",
       speed: 210,
@@ -616,8 +476,8 @@ const cars = [
       rating: 4.6,
       location: "Cityh",
       features: ["All-Wheel Drive", "Advanced Tech"],
-      availability: 5
-    },
+      isBooked: false
+        },
 
     {
       name: "Lamborghini Huracan 2022",
@@ -632,8 +492,8 @@ const cars = [
       rating: 4.9,
       location: "Cityh",
       features: ["Supercar Performance", "Head-Turning Design"],
-      availability: 1
-    },
+      isBooked: false
+        },
     {
       name: "Hyundai Kona Electric 2023",
       speed: 170,
@@ -647,8 +507,8 @@ const cars = [
       rating: 4.7,
       location: "Cityh",
       features: ["Zero Emissions", "Smart Infotainment"],
-      availability: 3
-    },
+      isBooked: false
+        },
     {
       name: "Maserati Levante 2021",
       speed: 260,
@@ -662,8 +522,8 @@ const cars = [
       rating: 4.8,
       location: "Cityh",
       features: ["Luxury Interior", "Dynamic Performance"],
-      availability: 2
-    },
+      isBooked: false
+        },
     {
       name: "Subaru Outback 2022",
       speed: 200,
@@ -677,8 +537,8 @@ const cars = [
       rating: 4.5,
       location: "Cityh",
       features: ["All-Wheel Drive", "Off-Road Capability"],
-      availability: 4
-    },
+      isBooked: false
+        },
     {
       name: "Jaguar F-Type 2021",
       speed: 275,
@@ -692,8 +552,8 @@ const cars = [
       rating: 4.6,
       location: "Cityh",
       features: ["Distinctive Design", "Dynamic Performance"],
-      availability: 1
-    },
+      isBooked: false
+        },
 
     {
       name: "Tesla Model 3",
@@ -708,8 +568,8 @@ const cars = [
       rating: 4.9,
       location: "Cityh",
       features: ["Long Range", "Autopilot"],
-      availability: 5
-    },
+      isBooked: false
+        },
     {
       name: "Nissan Leaf",
       speed: 150,
@@ -723,8 +583,8 @@ const cars = [
       rating: 4.5,
       location: "Cityh",
       features: ["Zero Emissions", "Regenerative Braking"],
-      availability: 8
-    },
+      isBooked: false
+        },
     {
       name: "Chevrolet Bolt EV",
       speed: 200,
@@ -738,8 +598,8 @@ const cars = [
       rating: 4.7,
       location: "Cityh",
       features: ["Eco-Friendly", "Modern Interior"],
-      availability: 6
-    },
+      isBooked: false
+        },
     {
       name: "Audi e-tron",
       speed: 210,
@@ -753,8 +613,8 @@ const cars = [
       rating: 4.8,
       location: "Cityh",
       features: ["Quattro All-Wheel Drive", "Virtual Cockpit"],
-      availability: 3
-    },
+      isBooked: false
+        },
     {
       name: "BMW i3",
       speed: 160,
@@ -768,8 +628,8 @@ const cars = [
       rating: 4.6,
       location: "Cityh",
       features: ["Sustainable Materials", "Urban Mobility"],
-      availability: 7
-    },
+      isBooked: false
+        },
     {
       name: "Hyundai Kona Electric",
       speed: 180,
@@ -783,8 +643,8 @@ const cars = [
       rating: 4.5,
       location: "Cityh",
       features: ["Regenerative Braking", "SmartSense Safety"],
-      availability: 4
-    },
+      isBooked: false
+        },
     {
       name: "Kia Soul EV",
       speed: 170,
@@ -798,8 +658,8 @@ const cars = [
       rating: 4.4,
       location: "Cityh",
       features: ["Distinctive Design", "UVO Intelligence"],
-      availability: 6
-    },
+      isBooked: false
+        },
     {
       name: "Ford Mustang Mach-E",
       speed: 210,
@@ -813,8 +673,8 @@ const cars = [
       rating: 4.7,
       location: "Cityh",
       features: ["Sleek Design", "Next-Gen SYNC"],
-      availability: 3
-    },
+      isBooked: false
+        },
     {
       name: "Rivian R1T",
       speed: 250,
@@ -828,8 +688,8 @@ const cars = [
       rating: 4.9,
       location: "Cityh",
       features: ["Adventure-Ready", "Electric Adventure"],
-      availability: 2
-    },
+      isBooked: false
+        },
     {
       name: "Porsche Taycan",
       speed: 260,
@@ -843,8 +703,8 @@ const cars = [
       rating: 4.8,
       location: "Cityh",
       features: ["Performance Excellence", "Porsche Connect"],
-      availability: 1
-    }
+      isBooked: false
+        }
   ];
   
 

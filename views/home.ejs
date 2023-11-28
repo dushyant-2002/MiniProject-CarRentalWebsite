@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home</title>
-    <link rel="stylesheet" href="homeStyle.css">
+    <link rel="stylesheet" href="./css/home.css">
 </head>
 
 <body>
-    <div class="nav">
+    <!-- <div class="nav">
         <div class="left">
             <a href="index.html">
                 <img src="mainimage.jpeg" alt="car image" class="logo">
@@ -27,7 +27,27 @@
             <a href="" >Sign In</a>
             <a href="signup.html" class="register" id="register">Register</a>
         </div>
-    </div>
+    </div> -->
+    <div class="nav-div">
+        <nav>
+          <div class="nav-left">
+            <!-- <h4 class="go">GoWheels</h4> -->
+            <h4 class="go"><a href="/book" style="text-decoration: none; color: aliceblue;">GoWheels</a></h4>
+          </div>
+          <div class="nav-right">
+            <button class="nav-button"><strong>Become a Host</strong></button>
+            <%if(!isAuthenticated){%>
+                <a class="nav-a log" href="/login" >Login/Signup</a>
+                <a class="nav-a h" href="#">Help</a>
+                <%}%>
+              <% if(isAuthenticated){%>
+                <a class="nav-a log" href="/logout">Logout</a>
+                <a class="nav-a h" href="/orders">My Orders</a>
+                <%}%>
+            <a class="nav-a c" href="#">Contact </a>
+          </div>
+        </nav>
+      </div>
     <div class="main">
         <div class="leftmain">
                 <h4>Plan your trip now</h4>
@@ -40,12 +60,12 @@
                     <p>goals with many extraordinary</p>
                 </div>
                 <div class="leftbuttons">
-                    <a href="book.html"><button class="booknow" >Book Ride</button></a>
+                    <a href="/book"><button class="booknow" >Book Ride</button></a>
                     <button class="learnmore">Learn more</button>
                 </div>
         </div>  
         <div class="rightmain">
-            <img src="mainimage.jpeg" class="mainimage" alt="orange car">
+            <img src="./img/mainimage.jpeg" class="mainimage" alt="orange car">
         </div>
     </div>
     <div class="request">
@@ -53,21 +73,21 @@
         <div class="request-list">
             <div class="request-list1">
                 <div class="request-items">
-                    <img src="documents.jpeg" alt="" class="request-items-img">
+                    <img src="./img/documents.jpeg" alt="" class="request-items-img">
                     <div>
                         <h4>Bring documents</h4>
                     <p>At a counter you will need a valid driver's license issued in your name and your ID.</p>
                     </div>
                 </div>
                 <div class="request-items">
-                    <img src="on-time.jpeg" alt="" class="request-items-img">
+                    <img src="./img/on-time.jpeg" alt="" class="request-items-img">
                     <div>
                         <h4>Don't be late</h4>
                     <p>Be on time, or it will count as a no-show and the supplier may refuse to rent a car to you.</p>
                     </div>
                 </div>
                 <div class="request-items">
-                    <img src="inspect.png" alt="" class="request-items-img">
+                    <img src="./img/inspect.png" alt="" class="request-items-img">
                     <div>
                         <h4>Inspect the car</h4>
                     <p>Look over the car for damage, take photos of any scratches, check the type of fuel.</p>
@@ -76,7 +96,7 @@
             </div>
             <div class="request-list1">
                 <div class="request-items">
-                    <img src="credit.webp" alt="" class="request-items-img">
+                    <img src="./img/credit.webp" alt="" class="request-items-img">
                     <div>
                         <h4>Use a credit card</h4>
                     <p>The supplier will put a hold on your credit card as a security deposit against damage.</p>

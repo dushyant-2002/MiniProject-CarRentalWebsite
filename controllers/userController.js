@@ -26,7 +26,8 @@ const signup = async(req,res)=>{
          //token generate
          const token = jwt.sign({username:result.username,id:result._id},SECRETKEY);
          res.cookie('access_token',token);
-         res.status(201).json({user:result,token:token});
+        //  res.status(201).json({user:result,token:token});
+        res.redirect("/book");
     } catch (error) {
         console.log(error);
         res.status(500).json({message:"Something went wrong"}); 
@@ -49,8 +50,8 @@ const signin = async(req,res)=>{
         }
         const token = jwt.sign({username:existinguser.username,id:existinguser._id},SECRETKEY);
         res.cookie('access_token',token);
-        res.status(201).json({user:existinguser,token:token});
-        // res.redirect("/book");
+        // res.status(201).json({user:existinguser,token:token});
+        res.redirect("/book");
         
 
     } catch (error) {

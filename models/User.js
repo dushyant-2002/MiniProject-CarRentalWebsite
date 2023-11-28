@@ -35,7 +35,12 @@ let userSchema = new mongoose.Schema({
         required:true,
         trim:true
 
-    }
+    },
+    order:[{
+        type:mongoose.Types.ObjectId,
+        ref:'Order'
+    }]
+    
 
 })
 let User = mongoose.model('User',userSchema);

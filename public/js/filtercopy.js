@@ -98,6 +98,7 @@ function filter(cars){
     const carGrid = document.querySelector(".car-grid");
     s="";
     cars.forEach((car)=>{
+      if(car.isBooked == false){
         s += `<div class="car-item">
         <img class="car-image" src="${car.img}" alt="${car.name}">
         <div class="car-details">
@@ -152,7 +153,7 @@ function filter(cars){
         </div>
         <a href="/show/?id=${car._id}&location=${place}&pickupDate=${pickupDate}&pickupTime=${pickupTime}&dropDate=${dropDate}&dropTime=${dropTime}"><button class="nav-button full-width bookbtn"><strong>Book Now</strong></button></a>
       </div>
-      `;
+      `};
     })
     carGrid.innerHTML = s;
 }

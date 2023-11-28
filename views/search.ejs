@@ -30,8 +30,16 @@
     </div>
     <div class="right">
       <button class="nav-button"><strong>Become a Host</strong></button>
-      <a class="nav-a log" href="/login">Login/Signup</a>
-      <a class="nav-a h" href="#">Help</a>
+      <%if(!isAuthenticated){%>
+        <a class="nav-a log" href="/login" >Login/Signup</a>
+        <a class="nav-a h" href="#">Help</a>
+        <%}%>
+      <% if(isAuthenticated){%>
+        <a class="nav-a log" href="/logout">Logout</a>
+        <a class="nav-a h" href="/orders">My Orders</a>
+        <%}%>
+      
+      
       <a class="nav-a c" href="#">Contact </a>
     </div>
   </nav>
@@ -56,23 +64,23 @@
         <li><a class="dropdown-item" href="#">Mathura</a></li>
       </ul>
       <input type="text" class="form-control long-input" id="locationinp"  name="location" aria-label="Text input with dropdown button"
-      placeholder="Select Location" required>
+      placeholder="Select Location" value="Cityh" required>
     </div>
     <br><br>  
       <div class="pickup">
       <label for="pickupDate">Pickup Date :</label><br>
-      <input class="niche" type="date" id="pickupDate" name="pickupDate"  required><br>
+      <input class="niche" type="date" id="pickupDate" name="pickupDate" value="2023-11-27" required><br>
       <label for="pickupTime">Pickup Time : </label><br>
-      <input class="niche" type="time" id="pickupTime" name="pickupTime"  required><br><br>
+      <input class="niche" type="time" id="pickupTime" name="pickupTime" value="11:50" required><br><br>
     </div>
      
 
 <br>
   <div class="pickup">
   <label for="dropDate">Drop Date :</label><br>
-  <input class="niche" type="date" id="dropDate" name="dropDate" value="Siya" required><br>
+  <input class="niche" type="date" id="dropDate" name="dropDate" value="2023-11-28" required><br>
   <label for="dropTime">Drop Time :</label><br>
-  <input class="niche" type="time" id="dropTime" name="dropTime" value="Varshney" required><br><br>
+  <input class="niche" type="time" id="dropTime" name="dropTime" value="16:04" required><br><br>
 </div>
 <br><br><br>
 <input class="submit-button" type="submit" value="Search">   

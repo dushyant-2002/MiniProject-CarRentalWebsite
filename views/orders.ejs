@@ -3,9 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyOrders</title>
+    <title>myOrders</title>
+    <link rel="stylesheet" href="./css/myorders.css">
 </head>
 <body>
-    <h1>Order created Successfully</h1>
+    <div class="main">
+        <div class="nav-div">
+        
+            <div class="nav-left">
+                <h4 class="go"><a href="/book" style="text-decoration: none; color: aliceblue;">GoWheels</a></h4>
+            </div>
+            <div class="nav-right">
+              <button class="nav-button"><strong>Become a Host</strong></button>
+              <%if(!isAuthenticated){%>
+                <a class="nav-a log" href="/login" >Login/Signup</a>
+                <a class="nav-a h" href="#">Help</a>
+                <%}%>
+              <% if(isAuthenticated){%>
+                <a class="nav-a log" href="/logout">Logout</a>
+                <a class="nav-a h" href="/orders">My Orders</a>
+                <%}%>
+            </div>
+          
+        </div>
+        <!-- <p><%=orders%></p> -->
+        <div class="my-orders">
+            <h2>My Orders</h2>
+            <% orders.forEach((item)=>{%>
+                <div class="car-item">
+                    <div class="car-image">
+                      <img src="<%=item.img%>" alt="Car 1">
+                    </div>
+                    <div class="car-details">
+                      <div class="top-details">
+                        <p>
+                          Order id : <%=item._id%>
+                          <br> <br>
+                          Car name : <%=item.name%>
+                        </p>
+                      </div>
+                      <div class="mid-details">
+                        <div class="mid-left">
+                          <p>
+                            Pick-up Date <br>
+                            <%=item.pickupDate%>
+                          </p>
+                          <br>
+                          
+                          <p>
+                            Pick-up Time <br>
+                            <%=item.pickupTime%>
+                          </p>
+                        </div>
+                        <div class="mid-right">
+                            <p>
+                              Drop Date <br>
+                              <%=item.dropDate%>
+                            </p>
+                            <br>
+                        
+                            <p>
+                              Drop Time <br>
+                              <%=item.dropTime%>
+                        </div>
+                        
+                      </div>
+                      <div class="bottom-details">
+                        <p>Price : ₹ <%=item.price%></p>               
+                      </div>
+                    </div>
+                </div>
+            <%})%>
+            
+           
+              </div>
+        
+    </div>
 </body>
 </html>
