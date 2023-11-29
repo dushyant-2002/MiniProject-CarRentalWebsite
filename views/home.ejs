@@ -38,13 +38,13 @@
             <button class="nav-button"><strong>Become a Host</strong></button>
             <%if(!isAuthenticated){%>
                 <a class="nav-a log" href="/login" >Login/Signup</a>
-                <a class="nav-a h" href="#">Help</a>
+                <a class="nav-a h" href="#footer">Help</a>
                 <%}%>
               <% if(isAuthenticated){%>
                 <a class="nav-a log" href="/logout">Logout</a>
                 <a class="nav-a h" href="/orders">My Orders</a>
                 <%}%>
-            <a class="nav-a c" href="#">Contact </a>
+            <a class="nav-a c" href="#footer">Contact </a>
           </div>
         </nav>
       </div>
@@ -61,14 +61,14 @@
                 </div>
                 <div class="leftbuttons">
                     <a href="/book"><button class="booknow" >Book Ride</button></a>
-                    <button class="learnmore">Learn more</button>
+                    <a href="#more"><button class="learnmore">Learn more</button></a>
                 </div>
         </div>  
         <div class="rightmain">
             <img src="./img/mainimage.jpeg" class="mainimage" alt="orange car">
         </div>
     </div>
-    <div class="request">
+    <div class="request" id="more">
         <h1>Things to Do When You <span class="orangeText">Pick Up Your Rental Car</span></h1>
         <div class="request-list">
             <div class="request-list1">
@@ -107,7 +107,7 @@
            
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer" id="footer">
         <p>&copy; 2023 GO WHEELS. All rights reserved.</p>
         <div>
             <a href="index.html">Home</a>
