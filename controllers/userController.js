@@ -2,6 +2,7 @@ const User = require("../models/User")
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
 const SECRETKEY = "NOTESAPI";
+
 const signup = async(req,res)=>{
     //existing user check
     const{firstname,lastname,username,phone,email,password} = req.body;
@@ -60,4 +61,14 @@ const signin = async(req,res)=>{
     }
 
 }
-module.exports = {signup,signin};
+    const getloginForm = async(req,res)=>{
+        res.render("user/login");
+    }
+    const getSignupform = async(req,res)=>{
+        res.render("user/signup");
+    }
+    const logout = async(req,res)=>{
+        await res.clearCookie('access_token');
+        res.redirect("/book");
+    }
+module.exports = {signup,signin,getloginForm,getSignupform,logout};
