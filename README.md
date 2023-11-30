@@ -18,7 +18,7 @@ Overview
 6.	Run the Application:
 bashCopy code
 npm start 
-7.	Access the Application: Open your browser and navigate to http://localhost:3000.
+7.	Access the Application: Open your browser and navigate to http://localhost:8080.
 
 
 Project Structure
