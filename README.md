@@ -42,5 +42,6 @@ Project Structure
 Contributions
 
 Contributions are welcome! Feel free to submit issues or pull requests.
+
 Happy Coding! 🚗✨
 
