@@ -407,7 +407,7 @@ const cars = [
       name: "Tesla Model S 2023",
       speed: 250,
       img: "https://hips.hearstapps.com/hmg-prod/images/2023-tesla-model-s-exterior-654d3a5e814cc.png?crop=0.590xw:0.517xh;0.212xw,0.228xh&resize=1200:*",
-      type: "Electric",
+      type: "Sedan",
       transmission: "Automatic",
       fuel: "Electric",
       seatingCapacity: 5,
