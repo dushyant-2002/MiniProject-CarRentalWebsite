@@ -22,15 +22,25 @@ npm start
 
 
 Project Structure
+
 •	controllers/: Backend controller logic.
+
 •	middlewares/: Custom middleware functions.
+
 •	models/: Database models.
+
 •	public/: Static assets.
+
 •	router/: Backend route handlers.
+
 •	views/: Views (if using server-side rendering).
+
 •	app.js: Express application setup.
+
 •	seed.js: Script for seeding initial data into the database.
+
 Contributions
+
 Contributions are welcome! Feel free to submit issues or pull requests.
 Happy Coding! 🚗✨
 
