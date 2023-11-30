@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+
 //requiring routes
 const authentication = require("./router/authentication");
 const render = require("./router/render");
@@ -18,7 +19,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
+
 let first;
+
 //delete cookies at every restart
 app.use(async(req, res, next) => {
     if (!first) {
@@ -30,7 +33,8 @@ app.use(async(req, res, next) => {
   
     // Continue to the next middleware or route handler
     next();
-  });
+});
+
 //setting static files
 
 

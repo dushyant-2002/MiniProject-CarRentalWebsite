@@ -32,7 +32,7 @@
       <button class="nav-button"><strong>Become a Host</strong></button>
       <%if(!isAuthenticated){%>
         <a class="nav-a log" href="/login" >Login/Signup</a>
-        <a class="nav-a h" href="#">Help</a>
+        <a class="nav-a h" href="#footer">Help</a>
         <%}%>
       <% if(isAuthenticated){%>
         <a class="nav-a log" href="/logout">Logout</a>
@@ -40,7 +40,7 @@
         <%}%>
       
       
-      <a class="nav-a c" href="#">Contact </a>
+      <a class="nav-a c" href="#footer">Contact </a>
     </div>
   </nav>
 </div>
@@ -69,7 +69,7 @@
     <br><br>  
       <div class="pickup">
       <label for="pickupDate">Pickup Date :</label><br>
-      <input class="niche" type="date" id="pickupDate" name="pickupDate" value="2023-11-27" required><br>
+      <input class="niche" type="date" id="pickupDate" name="pickupDate" value="2023-11-30" required><br>
       <label for="pickupTime">Pickup Time : </label><br>
       <input class="niche" type="time" id="pickupTime" name="pickupTime" value="11:50" required><br><br>
     </div>
@@ -78,7 +78,7 @@
 <br>
   <div class="pickup">
   <label for="dropDate">Drop Date :</label><br>
-  <input class="niche" type="date" id="dropDate" name="dropDate" value="2023-11-28" required><br>
+  <input class="niche" type="date" id="dropDate" name="dropDate" value="2023-12-01" required><br>
   <label for="dropTime">Drop Time :</label><br>
   <input class="niche" type="time" id="dropTime" name="dropTime" value="16:04" required><br><br>
 </div>
@@ -264,7 +264,7 @@
       <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
     <div class="review-description">
-       Ashutosh comment bhej likhkr..
+       Ther is my comment
     </div>
   </div>
 
@@ -277,7 +277,7 @@
       <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
     <div class="review-description">
-      Dushyant tu bhi..
+      There is my Comment
     </div>
   </div>
 
@@ -301,7 +301,7 @@
 <!-- Footer -->
 <!-- <div class="container"> -->
   <footer>
-    <div class="footer-content">
+    <div class="footer-content" id="footer">
         <div class="footer-section about">
             <h3>About Us</h3>
             <p>Welcome to GoWheels Car Rentals! Explore <br> our range of vehicles, from compact cars to spacious SUVs. Enjoy a comfortable and convenient journey with competitive rates and excellent customer service.</p>
