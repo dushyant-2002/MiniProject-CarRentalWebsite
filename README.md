@@ -4,7 +4,7 @@ Overview
     Installation Steps
 1.	Clone Repository:   
     bashCopy code
-    git clone https://github.com/your-username/car-rental-website.git 
+    git clone https://github.com/dushyant-2002/car-rental-website.git 
 2.	Navigate to Project Directory:
     bashCopy code
     cd car-rental-website 
